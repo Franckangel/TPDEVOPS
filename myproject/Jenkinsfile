@@ -7,19 +7,21 @@ pipeline {
                     def utilisateur = 'John'
                     def couleurPreferee = 'Bleu'
                     echo "Nom d'utilisateur: ${utilisateur}"
-                    echo "Couleur préférée: ${couleurPreferee}"
+                    echo "Couleur preferee: ${couleurPreferee}"
                 }
             }
         }
         stage('Utilisation des variables') {
 	    steps {
 		script {
+		    def utilisateur
+                    def couleurPreferee
 		    echo "Nom d'utilisateur: ${utilisateur}"
 		    echo "Couleur préférée: ${couleurPreferee}"
 		    def loisir = 'Jouer au football'
 		    couleurPreferee = 'Rouge' // Redéfinir la couleur préférée
 		    echo "Loisir de l'utilisateur: ${loisir}"
-		    echo "Nouvelle couleur préférée: ${couleurPreferee}"
+		    echo "Nouvelle couleur preferee: ${couleurPreferee}"
 		}
 	    }
 	}
