@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    stages {
+        stage('Lister les variables') {
+            steps {
+                script {
+                    def utilisateur = 'John'
+                    def couleurPreferee = 'Bleu'
+                    echo "Nom d'utilisateur: ${utilisateur}"
+                    echo "Couleur préférée: ${couleurPreferee}"
+                }
+            }
+        }
+        stage('Utilisation des variables') {
+	    steps {
+		script {
+		    echo "Nom d'utilisateur: ${utilisateur}"
+		    echo "Couleur préférée: ${couleurPreferee}"
+		    def loisir = 'Jouer au football'
+		    couleurPreferee = 'Rouge' // Redéfinir la couleur préférée
+		    echo "Loisir de l'utilisateur: ${loisir}"
+		    echo "Nouvelle couleur préférée: ${couleurPreferee}"
+		}
+	    }
+	}
+
+    }
+}
+
